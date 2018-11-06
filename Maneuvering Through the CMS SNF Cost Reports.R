@@ -5,7 +5,7 @@ library(scales)
 library(lubridate)
 
 # source functions
-source("C:/UsersmichaejaDownloads/CMS-SNF-Cost-Reports-master (1).zip/CMS-SNF-Cost-Reports-master/CMS SNF Cost Report Functions.R")
+source("C:/Users/michaeja/Downloads/CMS-SNF-Cost-Reports-master (1).zip/CMS-SNF-Cost-Reports-master/CMS SNF Cost Report Functions.R")
 
 # The cleaned dataset is available in the repository if the user
 # would like to start from here and not wait for the transformation steps below.
