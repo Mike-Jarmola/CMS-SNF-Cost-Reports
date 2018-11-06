@@ -249,7 +249,7 @@ ggplot(mi_df, aes(x = long, y = lat,
   scale_fill_gradient(low = "white", 
                       high = "red") +
   coord_map() +
-  ggtitle("Many States Average Less Than One Medicare Discharge a Day") + # graph title
+  ggtitle("Look at Livingston County") + # graph title
   theme(plot.title = element_text(hjust = 0.5), # center title
         panel.grid = element_blank(), # remove grid
         panel.background = element_blank(), # remove background
@@ -266,7 +266,6 @@ ggplot(mi_df, aes(x = long, y = lat,
 
 # Livingston County seems to dominate the Medicare Discharge per Day ratio. 
 # Let's see what the map looks like if we exclude Livingston County.
-
 mi_df %>%
   filter(!(subregion %in% ("livingston"))) %>%
   ggplot(aes(x = long, y = lat, 
@@ -276,7 +275,7 @@ mi_df %>%
   scale_fill_gradient(low = "white", 
                       high = "red") +
   coord_map() +
-  ggtitle("Many States Average Less Than One Medicare Discharge a Day") + # graph title
+  ggtitle("Urban Areas Have Higher Medicare Discharges Per Day") + # graph title
   theme(plot.title = element_text(hjust = 0.5), # center title
         panel.grid = element_blank(), # remove grid
         panel.background = element_blank(), # remove background
