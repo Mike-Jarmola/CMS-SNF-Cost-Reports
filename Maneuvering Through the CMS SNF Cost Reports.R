@@ -29,7 +29,7 @@ snf_df <- data.table()
 
 # run For Loop through each year
 # output of this For Loop is a data frame for specific fields as
-# indicated in the function "format_an"
+# indicated in format_an()
 for(x in 1:length(years)){
 
   # iterate through years
