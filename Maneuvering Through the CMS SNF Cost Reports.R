@@ -103,7 +103,7 @@ snf_df %>%
 snf_df <- snf_df %>%
   filter(SNF_BedCount > 0 & SNF_BedCount < 10000)
 
-### Let's now look at how many cost reports are usually submitted by a provider?
+### Let's now look at how many cost reports are usually submitted by a provider
 submitted_df <- snf_df %>%
   
   # Utilization Codes refer to the level of Medicare utilization of filed cost report.
@@ -129,18 +129,18 @@ submitted_df %>%
 # Some submit two cost reports. In this case, two SNFs submitted 
 # three cost reports. Further analysis will need to confirm or investigate 
 # these multiple cost report submissions. We know there are unique 
-# cost reports submissions, but some submissions may still be under review
+# cost report submissions, but some submissions may still be under review
 # and may thus need to be excluded for now.  
 
 # One way to get around:
-# 1) Multiple cost reporting periods
+# 1) Multiple cost reporting periods for a SNF in a year
 # 2) Cost reporting periods of differing lengths
 
 # is to scale metrics by the number of days in a cost reporting period. 
 # Let's see an example by analyzing Medicare Discharges.  
 
 ### Which state has the most Medicare Discharges?
-# Medicare is the highest payer to senior living providers, 
+# Medicare is the highest payer to senior care providers, 
 # followed by Private Pay, then Medicaid. As such, we will focus on 
 # Medicare metrics.
 
@@ -154,7 +154,7 @@ discharges_df <- snf_df %>%
             DAYS_IN_COST_REPORTING_PERIOD = 
               sum(DAYS_IN_COST_REPORTING_PERIOD, na.rm = TRUE)) %>%
   
-  # Scale by the days in cost reporting period to get an adjusted estimate to compare across states.
+  # Scale by the days in cost reporting period to get an adjusted estimate to compare across states
   mutate(SNF_MedicareDischargesPerDay = 
            SNF_MedicareDischarges/as.integer(DAYS_IN_COST_REPORTING_PERIOD),
          SNF_MedicareDischargesPerDay = 
@@ -182,7 +182,7 @@ discharges_df %>%
        y = "Medicare Discharges to SNF") +
   scale_x_continuous(labels = scales::comma) +
   scale_y_continuous(labels = scales::comma) +
-  ggtitle("Many States Average Less Than 0.5 Medicare Discharges a Day") + # graph title
+  ggtitle("Many States Average Less Than 0.5 Medicare Discharges per Day") + # graph title
   theme(plot.title = element_text(hjust = 0.5), # center title
         panel.grid = element_blank(), # remove grid
         panel.background = element_blank() # remove background
@@ -203,7 +203,7 @@ mi_df <- snf_df %>%
             DAYS_IN_COST_REPORTING_PERIOD = 
               sum(DAYS_IN_COST_REPORTING_PERIOD, na.rm = TRUE)) %>%
 
-  # Scale by Bed Days Available to get an adjusted estimate to compare across states.
+  # Scale by Bed Days Available to get an adjusted estimate to compare across counties
   mutate(SNF_MedicareDischargesPerDay = 
            SNF_MedicareDischarges/as.integer(DAYS_IN_COST_REPORTING_PERIOD)) %>%
   arrange(desc(SNF_MedicareDischargesPerDay))
@@ -228,7 +228,6 @@ counties <- left_join(x = counties,
 # The original dataset has the county name capitalized. 
 # The counties dataset has the county names in lower case. 
 # Let's make "County" in "mi_df" lower case.
-
 mi_df$County <- tolower(mi_df$County)
 head(mi_df)
 head(counties)
@@ -258,8 +257,7 @@ ggplot(mi_df, aes(x = long, y = lat,
         axis.ticks = element_blank(), # remove axes tick marks
         legend.title = element_blank(), # removed legend title
         legend.position = "bottom"
-        #legend.title.align = 0.5 # center legend title
-  )
+       )
 
 # The gray areas are counties that don't have cost report data.
 # More likely than not, these counties don't have SNFs. 
@@ -284,8 +282,7 @@ mi_df %>%
         axis.ticks = element_blank(), # remove axes tick marks
         legend.title = element_blank(), # removed legend title
         legend.position = "bottom"
-        #legend.title.align = 0.5 # center legend title
-  )
+        )
 
 # The map is much more colorful. The urban areas seem to receive the most
 # Medicare Discharges per Day. Grand Traverse County is home to Traverse City.
@@ -303,7 +300,7 @@ outlier_df <- snf_df %>%
             DAYS_IN_COST_REPORTING_PERIOD = 
               sum(DAYS_IN_COST_REPORTING_PERIOD, na.rm = TRUE)) %>%
 
-  # Scale by Bed Days Available to get an adjusted estimate to compare across states.
+  # Scale by Bed Days Available to get an adjusted estimate to compare across counties
   mutate(SNF_MedicareDischargesPerDay = 
            SNF_MedicareDischarges/as.integer(DAYS_IN_COST_REPORTING_PERIOD)) %>%
   arrange(desc(SNF_MedicareDischargesPerDay))
@@ -325,7 +322,7 @@ occupancy_df <- snf_df %>%
   filter(YEAR == 2017) %>%
   rowwise() %>%
 
-  # compute the total Inpatient Days
+  # compute the Total Inpatient Days
   mutate(SNF_TotalInpatientDays = sum(SNF_MedicareInpatientDays, 
                                       SNF_MedicaidInpatientDays,
                                       SNF_OtherInpatientDays, na.rm = TRUE)) %>%
