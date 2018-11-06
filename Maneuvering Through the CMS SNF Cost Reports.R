@@ -7,6 +7,11 @@ library(lubridate)
 # source functions
 source("C:/UsersmichaejaDownloads/CMS-SNF-Cost-Reports-master (1).zip/CMS-SNF-Cost-Reports-master/CMS SNF Cost Report Functions.R")
 
+# The cleaned dataset is available in the repository if the user
+# would like to start from here and not wait for the transformation steps below.
+# Once line 13 imports the dataset, start at line 82
+# snf_df <- fread("CMS_Cost_Reports_2017.csv")
+
 # pass a sequence of years you want data for
 # years <- 2011:2017
 
@@ -73,15 +78,7 @@ for(x in 1:length(years)){
 
 }
 
-b <- Sys.time()
-b
-b-a
-
-# The cleaned dataset is available in the repository if the user
-# would like the start from here and not wait for the transformation steps above.
-# snf_df <- fread("CMS_Cost_Reports_2017.csv")
-
-# Let's look at a charctceristic most common among all SNFs, beds. 
+### Let's look at a charctceristic most common among all SNFs, beds. 
 summary(snf_df$SNF_BedCount) 
 
 # Notice the maximum number of beds. This may be a typo on the part of 
@@ -185,7 +182,7 @@ discharges_df %>%
 # seems rare to average more than 1 Medicare Discharges a Day during a cost
 # reporting period. 
 
-# Let's now look at which counties in Michigan have the highest Medicare Discharges.
+### Let's now look at which counties in Michigan have the highest Medicare Discharges.
 
 mi_df <- snf_df %>%
   filter(YEAR == 2017,
@@ -312,7 +309,7 @@ head(outlier_df, 20)
 # than 11.6 over the last two or so years, this one stat for 
 # Livingston County, MI in 2017 very well may be a user error by the provider.
 
-# What is the average SNF occupancy rate in each state?
+### What is the average SNF occupancy rate in each state?
 occupancy_df <- snf_df %>%
   filter(YEAR == 2017) %>%
   rowwise() %>%
