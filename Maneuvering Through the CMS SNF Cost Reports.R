@@ -79,8 +79,7 @@ b-a
 
 # The cleaned dataset is available in the repository if the user
 # would like the start from here and not wait for the transformation steps above.
-# load("//ds/home/michaeja/Desktop/GitLab/CMS Cost Reports 2017.RData")
-
+# snf_df <- fread("CMS_Cost_Reports_2017.csv")
 
 # Let's look at a charctceristic most common among all SNFs, beds. 
 summary(snf_df$SNF_BedCount) 
