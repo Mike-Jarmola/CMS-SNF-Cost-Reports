@@ -2,7 +2,7 @@
 
 This walk-through downloads, transforms, and analyzes the publically available cost reports for Skilled Nursing Facilities (SNFs), available through the Centers for Medicare and Medicaid Services (CMS). 
 
-The motivation behind this project is to maneuver through and extract insight from a complex dataset. 
+The motivation behind this project is to maneuver through and extract insight from a complex, healthcare dataset. 
 
 The analysis intends to  explore the tip of the iceberg of some common metrics that could impact SNF behavior, and compare these metrics across states and counties. This analysis displays insights at an aggregate level. Finer details can be investigated by other users.
 
