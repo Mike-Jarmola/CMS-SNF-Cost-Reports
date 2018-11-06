@@ -20,5 +20,5 @@ SNF Cost Reports 2540-10 Form and 2540-10 Guide explaining the Cost Report:
 <https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/P152_41.zip>
 
 Metadata and data dictionaries can be found here:
-https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/SkilledNursingFaciilty-2010-form.html
+https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Cost-Reports/SkilledNursingFaciilty-2010-form.html  
 Specifically, download the zip file and open "HCRIS_DataDictionary.csv" for field descriptions
