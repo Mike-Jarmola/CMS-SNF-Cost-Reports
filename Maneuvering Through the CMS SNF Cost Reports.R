@@ -15,7 +15,7 @@ source("//ds/home/michaeja/Desktop/CMS SNF Cost Report Functions.R")
 
 # The cleaned dataset is available in the repository if the user
 # would like to start from here and not wait for the transformation steps below.
-# Once line 22 imports the dataset, start at line 86
+# Once line 19 imports the dataset, start at line 86
 #snf_df <- fread("CMS_Cost_Reports_2017.csv")
 
 # pass a sequence of years you want data for
