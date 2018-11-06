@@ -15,7 +15,7 @@ source("//ds/home/michaeja/Desktop/CMS SNF Cost Report Functions.R")
 
 # The cleaned dataset is available in the repository if the user
 # would like to start from here and not wait for the transformation steps below.
-# Once line 19 imports the dataset, start at line 86
+# Once line 19 imports the dataset, start at line 89
 #snf_df <- fread("CMS_Cost_Reports_2017.csv")
 
 # pass a sequence of years you want data for
@@ -81,6 +81,9 @@ for(x in 1:length(years)){
   snf_df <- rbind(snf_df, snf_cost_report)
 
 }
+
+# The following analysis was done just on the imported 2017 cost reports. 
+# Results will vary depending on year(s) used.
 
 ### Let's look at a charctceristic most common among all SNFs, beds. 
 summary(snf_df$SNF_BedCount) 
