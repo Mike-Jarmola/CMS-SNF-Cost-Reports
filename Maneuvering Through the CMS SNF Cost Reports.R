@@ -4,13 +4,19 @@ library(tidyverse)
 library(scales)
 library(lubridate)
 
+# The files downloaded are too big to store in a repository on their own.
+# Without the downloaded files, a reproducible example would be hard to come
+# up with, hence, the data are directly downloaded. 
+# The download may take 6 to 8 minutes for each year to download. 
+# Time may vary across users. 
+
 # source functions
-source("C:/Users/michaeja/Downloads/CMS-SNF-Cost-Reports-master (1).zip/CMS-SNF-Cost-Reports-master/CMS SNF Cost Report Functions.R")
+source("//ds/home/michaeja/Desktop/CMS SNF Cost Report Functions.R")
 
 # The cleaned dataset is available in the repository if the user
 # would like to start from here and not wait for the transformation steps below.
-# Once line 13 imports the dataset, start at line 82
-# snf_df <- fread("CMS_Cost_Reports_2017.csv")
+# Once line 22 imports the dataset, start at line 86
+#snf_df <- fread("CMS_Cost_Reports_2017.csv")
 
 # pass a sequence of years you want data for
 # years <- 2011:2017
@@ -20,8 +26,6 @@ years <- 2017
 
 # create empty data table to store results
 snf_df <- data.table()
-
-a <- Sys.time()
 
 # run For Loop through each year
 # output of this For Loop is a data frame for specific fields as
