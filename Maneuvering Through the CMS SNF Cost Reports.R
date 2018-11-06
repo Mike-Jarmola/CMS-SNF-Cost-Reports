@@ -35,12 +35,12 @@ for(x in 1:length(years)){
   # iterate through years
   yrs <- years[x]
 
-  # name the object to be in your enviorment
+  # name the object to be in your environment
   CostReport_names <- 'snf_cost_report'
 
   # paste together the downloadable zip file link
-  # ***Always verify that the url's are accurate/pulling the correct files***
-  # ***File paths may change from year to year as data gets archived***
+  # ***Always verify that the url is accurate/pulling the correct files***
+  # ***File paths may change from year to year as data get archived***
   zipfile_url = paste("http://downloads.cms.gov/Files/hcris/SNF10FY", yrs, ".zip", sep = "")
 
   # paste together the CSV file name to extract from the zip file
@@ -85,13 +85,12 @@ for(x in 1:length(years)){
 # The following analysis was done just on the imported 2017 cost reports. 
 # Results will vary depending on year(s) used.
 
-### Let's look at a charctceristic most common among all SNFs, beds. 
+### Let's look at a characteristic most common among all SNFs, beds. 
 summary(snf_df$SNF_BedCount) 
 
 # Notice the maximum number of beds. This may be a typo on the part of 
 # the provider that entered this information. It seems unlikely that a
 # SNF has more than 12 million beds. Let's check the next highest bed counts.
-
 snf_df %>%
   arrange(desc(SNF_BedCount)) %>%
   select(SNF_BedCount) %>%
@@ -108,7 +107,7 @@ snf_df <- snf_df %>%
 submitted_df <- snf_df %>%
   
   # Utilization Codes refer to the level of Medicare utilization of filed cost report.
-  # Codes "N" means "No Medicare Utilization" and "L" means "Low Medicare Utilization"
+  # Codes "N" means "No Medicare Utilization" and "L" means "Low Medicare Utilization."
   # These codes don't have values in the cost reports, as such, we will
   # only focus on cost reports that have "F" ("Full Medicare Utilization").
   filter(UTIL_CD == "F",
@@ -131,7 +130,7 @@ submitted_df %>%
 # three cost reports. Further analysis will need to confirm or investigate 
 # these multiple cost report submissions. We know there are unique 
 # cost reports submissions, but some submissions may still be under review
-# and may thus need to be excluded.  
+# and may thus need to be excluded for now.  
 
 # One way to get around:
 # 1) Multiple cost reporting periods
@@ -184,13 +183,12 @@ discharges_df %>%
         panel.background = element_blank() # remove background
   )
 
-# The amount of days in Michigan's cost reporting periods seems reasonable, however, 
-# the amount of Medicare Discharges seems very high. Also, we see here that is
+# The amount of days in Michigan's cost reporting periods seem reasonable, however, 
+# the amount of Medicare Discharges seems very high. Also, we see here that it
 # seems rare to average more than 1 Medicare Discharges a Day during a cost
 # reporting period. 
 
 ### Let's now look at which counties in Michigan have the highest Medicare Discharges.
-
 mi_df <- snf_df %>%
   filter(YEAR == 2017,
          State == "MI") %>%
