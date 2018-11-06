@@ -5,7 +5,7 @@ library(scales)
 library(lubridate)
 
 # source functions
-source("//ds/home/michaeja/Desktop/GitLab/CMS SNF Cost Report Functions.R")
+source("C:/UsersmichaejaDownloads/CMS-SNF-Cost-Reports-master (1).zip/CMS-SNF-Cost-Reports-master/CMS SNF Cost Report Functions.R")
 
 # pass a sequence of years you want data for
 # years <- 2011:2017
