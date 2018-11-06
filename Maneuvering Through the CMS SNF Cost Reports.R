@@ -172,7 +172,12 @@ discharges_df %>%
   geom_point() +
   geom_abline(slope = 0.5, intercept = 0, color = "red") +
   geom_abline(slope = 1, intercept = 0, color = "blue") +
-  annotate("text", x = c(100000, 300000), y = c(200000, 200000), label = c("Blue Line = 1 Per Day", "Red Line = 0.5 Per Day")) +
+  annotate("text", 
+           x = c(100000, 300000, 150000), 
+           y = c(200000, 200000, 635000), 
+           label = c("Blue Line = 1 Per Day", 
+                     "Red Line = 0.5 Per Day",
+                     "Michigan")) +
   labs(x = "Days in Cost Reporting Period", 
        y = "Medicare Discharges to SNF") +
   scale_x_continuous(labels = scales::comma) +
