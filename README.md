@@ -4,7 +4,7 @@ This walk-through downloads, transforms, and analyzes the publically available c
 
 The motivation behind this project is to maneuver through and extract insight from a complex, healthcare dataset. 
 
-The analysis intends to  explore the tip of the iceberg of some common metrics that could impact SNF behavior, and compare these metrics across states and counties. This analysis displays insights at an aggregate level. Finer details can be investigated by other users.
+The analysis intends to explore the tip of the iceberg of some common metrics that could impact SNF behavior, and compare these metrics across states and counties. This analysis displays insights at an aggregate level. Finer details can be investigated by other users.
 
 Note, RPT_REC_NUM are unique/distinct to each file. i.e. Records that are in the 2015 file but end in 2016 or 2014 are NOT double counted in the 2014 or 2016 files.
 
