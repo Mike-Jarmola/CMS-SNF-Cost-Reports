@@ -206,7 +206,7 @@ format_rpt <- function(df){
   df$FY_BGN_DT <- as.Date(df$FY_BGN_DT, format= "%m/%d/%Y")
   df$FY_END_DT <- as.Date(df$FY_END_DT, format= "%m/%d/%Y")
   
-  # extract year (assumption: cost report is attributed to the year in which its FY ends)
+  # extract year
   df$YEAR <- year(df$FY_END_DT)
   
   # calculate days in a cost reporting period
