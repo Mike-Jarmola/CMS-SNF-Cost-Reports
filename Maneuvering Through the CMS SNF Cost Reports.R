@@ -199,6 +199,7 @@ mi_df <- snf_df %>%
               sum(SNF_MedicareDischarges, na.rm = TRUE),
             DAYS_IN_COST_REPORTING_PERIOD = 
               sum(DAYS_IN_COST_REPORTING_PERIOD, na.rm = TRUE)) %>%
+
   # Scale by Bed Days Available to get an adjusted estimate to compare across states.
   mutate(SNF_MedicareDischargesPerDay = 
            SNF_MedicareDischarges/as.integer(DAYS_IN_COST_REPORTING_PERIOD)) %>%
@@ -299,6 +300,7 @@ outlier_df <- snf_df %>%
               sum(SNF_MedicareDischarges, na.rm = TRUE),
             DAYS_IN_COST_REPORTING_PERIOD = 
               sum(DAYS_IN_COST_REPORTING_PERIOD, na.rm = TRUE)) %>%
+
   # Scale by Bed Days Available to get an adjusted estimate to compare across states.
   mutate(SNF_MedicareDischargesPerDay = 
            SNF_MedicareDischarges/as.integer(DAYS_IN_COST_REPORTING_PERIOD)) %>%
