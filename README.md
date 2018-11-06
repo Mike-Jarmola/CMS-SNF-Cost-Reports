@@ -1,5 +1,4 @@
 # CMS-SNF-Cost-Reports
-Pulling Open Source CMS SNF Cost Reports
 
 This walk-through downloads, transforms, and analyzes the publically available cost reports for Skilled Nursing Facilities (SNFs), available through the Centers for Medicare and Medicaid Services (CMS). 
 
